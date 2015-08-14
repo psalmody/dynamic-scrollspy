@@ -10,6 +10,7 @@ $(function() {
     opts = (typeof(opts) == 'undefined') ? {} : opts;
     this.isinit = (typeof(this.isinit) == 'undefined') ? false : self.isinit;
 
+    //destroy scrollspy ooption
     if (opts == 'destroy') {
       this.isinit = false;
       this.empty();
@@ -20,19 +21,22 @@ $(function() {
 
     //extend options priorities: passed, existing, defaults
     this.options = $.extend({},{
-      tH: 2,
-      bH: 6,
-      genIDs: false,
-      offset: 100,
-      ulClassNames: 'hidden-print',
-      activeClass: '',
-      testing: false
+      tH: 2, //lowest-level header to be included (H2)
+      bH: 6, //highest-level header to be included (H6)
+      genIDs: false, //generate random IDs?
+      offset: 100, //offset for scrollspy
+      ulClassNames: 'hidden-print', //add this class to top-most UL
+      activeClass: '', //active class (besides .active) to add
+      testing: false //if testing, show heading tagName and ID
     }, this.options, opts);
 
     var self = this;
 
+    //store tree and used random numbers
     this.tree = {};
+    this.rands = [];
 
+    //returns jQuery object of all headers between tH and bH
     function selectAllH() {
       var st = [];
       for (var i=self.options.tH; i<=self.options.bH; i++) {
@@ -41,8 +45,7 @@ $(function() {
       return $(st.join(','));
     }
 
-    //don't want duplicat random numbers
-    this.rands = [];
+    //generate random numbers; save and check saved to keep them unique
     function randID() {
       var r;
       function rand() {
@@ -76,7 +79,6 @@ $(function() {
     //setup the tree, (first level)
     function makeTree() {
       var tree = self.tree;
-
       $('H'+self.options.tH).each(function() {
         //run the first level
         tree[$(this).prop('id')] = {
@@ -102,7 +104,6 @@ $(function() {
         var lvl = Number($('#'+k).prop('tagName').replace('H',''));
         //end if we are at the final level
         if (lvl >= self.options.bH) return false;
-
         //next until
         $('#'+k).nextUntil('H'+lvl).filter('H'+(lvl+1)).each(function() {
           what[k][$(this).prop('id')] = {
@@ -110,7 +111,7 @@ $(function() {
             jqel: $(this)
           }
         });
-
+        //keep recursing if necessary
         if (lvl < self.options.bH) itCreateTree( what[k] );
 
       }
@@ -121,7 +122,7 @@ $(function() {
 
       var ul = $('<ul class="nav '+self.options.ulClassNames+'"></ul>');
       self.append(ul);
-
+      //then iterate three tree
       $.each(self.tree,function(k) {
         var c = self.tree[k];
         var li = '<li id="dsli'+k+'"><a href="#'+k+'">' + c.dstext + '</a></li>';
@@ -149,24 +150,16 @@ $(function() {
       }
     }
 
-
+    //initialize plugin
     function init() {
-
+      //first time (or after destroy)
       if (self.isinit==false) {
+        //generate IDs
         if (self.options.genIDs) genIDs();
-
+        //make the tree
         makeTree();
-
+        //render it
         renderTree();
-        self.on('activate.bs.scrollspy', function () {
-            var current = $('.nav li.active > a');
-            $('.nav a').removeClass(self.options.activeClass);
-            $('.child').hide();
-            if (current.closest('ul').hasClass('child')) {
-                current.closest('ul').show();
-            }
-            current.addClass(self.options.activeClass);
-        });
 
         var ul = self.children('ul');
 
