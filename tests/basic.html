@@ -8,41 +8,26 @@
   <title>Test Page :: Dynamic-Scrollspy</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
   <style>
-  body {
-      position: relative;
+
+  .nav>li>a {
+    padding: 5px 10px;
   }
 
-  #scrollNav li.active a,
-  #scrollNav li.active a:hover {}
-
-  .nav {
-      font-size: .9em;
+  .nav > .active > a {
+    font-weight:bold;
   }
 
-  .nav.child {
-      padding-left: 10px;
-      display: none;
+  .nav .nav {
+    padding-left: 10px;
+    display:none;
   }
 
-  .nav > li > a {
-      padding: 5px 15px;
+  .nav > .active > .nav {
+    display: block;
   }
 
-  .scrolled {
-      top: 140px;
-  }
+  .nav li {
 
-  .nav.child > li > a {
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      max-width: 230px;
-      overflow: hidden;
-  }
-
-  .small-blockquote {
-      font-size: 14px;
-      padding: 0 22px;
-      font-style: italic;
   }
 
   h2, h3, h4, h5, h6 {

@@ -25,7 +25,7 @@ $(function() {
       genIDs: false,
       offset: 100,
       ulClassNames: 'hidden-print',
-      activeClass: 'bg-info text-info',
+      activeClass: '',
       testing: false
     }, this.options, opts);
 
