@@ -1,4 +1,4 @@
-# AutoScrollspy v 0.0.1
+# AutoScrollspy v 0.0.2
 by Michael A Smith @psalmody
 
 jQuery plugin to dynamically generate a `.nav` outline and setup Bootstrap scrollspy.
@@ -7,11 +7,7 @@ jQuery plugin to dynamically generate a `.nav` outline and setup Bootstrap scrol
 
 Include [Bootstrap 3+](http://getbootstrap.com) and [jQuery 1.11+ or 2.0+](http://jquery.com).
 
-Download from [GitHub Project Page](https://github.com/psalmody/dynamic-scrollspy) or install via NPM.
-
-```shell
-npm install dynamic-scrollspy
-```
+Download from [GitHub Project Page](https://github.com/psalmody/dynamic-scrollspy).
 
 Include:
 
