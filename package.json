@@ -10,8 +10,19 @@
     "type":"git",
     "url":"https://github.com/psalmody/dynamic-scrollspy"
   },
-  "author": "@psalmody",
-  "license": "MIT",
+  "keywords": [
+    "Bootstrap",
+    "jQuery",
+    "jquery-plugin",
+    "scrollspy",
+    "dynamic"
+  ],
+  "homepage":"https://github.com/psalmody/dynamic-scrollspy",
+  "author": "Michael A Smith @psalmody",
+  "license": {
+      "type": "MIT License",
+      "url": "https://github.com/psalmody/dynamic-scrollspy/blob/master/mit-license.md"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",

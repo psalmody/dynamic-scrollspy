@@ -1,6 +1,6 @@
 /**
-*  AutoScrollspy v 0.0.1
-*  
+*  AutoScrollspy v 0.0.1 by Michael A Smith @psalmody
+*  https://github.com/psalmody/dynamic-scrollspy
 */
 
 $(function() {
@@ -87,7 +87,7 @@ $(function() {
         }
       });
 
-      if (self.options.tH+1 < self.options.bH) {
+      if (self.options.tH+1 <= self.options.bH) {
         //only recurse if more than one level requested
         itCreateTree(tree);
       }

@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     concat: {
         options: {
             separator: ';\n',
-            banner: '/**\n*  AutoScrollspy v <%= pkg.version %>\n*  <%= pkg.homepage %>\n*/\n',
+            banner: '/**\n*  AutoScrollspy v <%= pkg.version %> by <%= pkg.author %>\n*  <%= pkg.homepage %>\n*/\n',
         },
         build: {
             src: ['src/dynamicscrollspy.js'],

@@ -83,7 +83,7 @@ $(function() {
         }
       });
 
-      if (self.options.tH+1 < self.options.bH) {
+      if (self.options.tH+1 <= self.options.bH) {
         //only recurse if more than one level requested
         itCreateTree(tree);
       }
