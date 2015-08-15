@@ -173,7 +173,7 @@ $(function() {
           }
         })
 
-        $('body').attr('data-spy','true').scrollspy({ target: '#'+self.prop('id') });
+        $('body').attr('data-spy','true').scrollspy({ target: '#'+self.prop('id'), offset: self.options.offset });
 
         self.isinit = true;
       } else {
