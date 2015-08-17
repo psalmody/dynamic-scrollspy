@@ -68,12 +68,33 @@ $(function() {
         // if no id prop for this header, return a random id
         return ($(this).prop('id') == '') ? $(this).prop('tagName')+(randID()) : $(this).prop('id');
       })
-      if (self.options.testing) {
-        selectAllH().append(function() {
-          // let's see the tag names (for test)
-          return ' ('+$(this).prop('tagName')+', '+$(this).prop('id')+')'
-        });
+    };
+
+    //check that all have id attribute
+    function checkIDs() {
+      var missing = 0;
+      //check they exist first
+      selectAllH().each(function() {
+        if ($(this).prop('id')=='') {
+          missing++;
+        } else {
+          if ($('[id="'+$(this).prop('id')+'"]').length > 1) throw new Error("DynamicScrollspy: Error! Duplicate id " + $(this).prop('id'));
+        }
+
+      })
+      if (missing > 0) {
+        var msg = "DynamicScrollspy: Not all headers have ids and genIDs: false.";
+        throw new Error(msg);
       }
+      return missing;
+    }
+
+    //testing - show IDs and tag types
+    function showTesting() {
+      selectAllH().append(function() {
+        // let's see the tag names (for test)
+        return ' ('+$(this).prop('tagName')+', '+$(this).prop('id')+')'
+      });
     }
 
     //setup the tree, (first level)
@@ -155,7 +176,10 @@ $(function() {
       //first time (or after destroy)
       if (self.isinit==false) {
         //generate IDs
-        if (self.options.genIDs) genIDs();
+        self.options.genIDs ? genIDs() : checkIDs();
+
+        if (self.options.testing) showTesting();
+
         //make the tree
         makeTree();
         //render it
