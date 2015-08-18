@@ -36,6 +36,11 @@ $(function() {
     this.tree = {};
     this.rands = [];
 
+    //encode any text in header title to HTML entities
+    function encodeHTML( value ) {
+      return $('<div></div>').text(value).html();
+    }
+
     //returns jQuery object of all headers between tH and bH
     function selectAllH() {
       var st = [];
@@ -103,7 +108,7 @@ $(function() {
       $('H'+self.options.tH).each(function() {
         //run the first level
         tree[$(this).prop('id')] = {
-          dstext: $(this).text(),
+          dstext: encodeHTML($(this).text()),
           jqel: $(this)
         }
       });
@@ -128,7 +133,7 @@ $(function() {
         //next until
         $('#'+k).nextUntil('H'+lvl).filter('H'+(lvl+1)).each(function() {
           what[k][$(this).prop('id')] = {
-            dstext: $(this).text(),
+            dstext: encodeHTML($(this).text()),
             jqel: $(this)
           }
         });
