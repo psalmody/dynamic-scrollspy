@@ -1,5 +1,5 @@
 
-$(function() {
+;(function ( $ ) {
 
   $.fn.DynamicScrollspy = function( opts ) {
     //define opts
@@ -229,4 +229,4 @@ $(function() {
 
   }
 
-})
+}( jQuery ));

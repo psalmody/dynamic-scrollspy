@@ -25,7 +25,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['src/dynamicscrollspy.js'],
+      files: ['*'],
       tasks: ['concat','uglify']
     }
   });
