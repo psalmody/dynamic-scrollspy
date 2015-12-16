@@ -24,16 +24,28 @@ module.exports = function(grunt) {
         }]
       }
     },
+    jsbeautifier: {
+      files: ["src/*.js"],
+      options: {
+        js: {
+          indentSize: 2
+        }
+      }
+    },
     watch: {
-      files: ['*'],
-      tasks: ['concat','uglify']
+      files: ['src/*.js'],
+      tasks: ['jsbeautifier','concat','uglify'],
+      options: {
+        livereload: true
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-jsbeautifier');
 
-  grunt.registerTask('default', ['concat','uglify']);
+  grunt.registerTask('default', ['jsbeautifier','concat','uglify']);
 
 };
