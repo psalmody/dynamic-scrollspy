@@ -17,6 +17,7 @@
 
     //extend options priorities: passed, existing, defaults
     this.options = $.extend({}, {
+      affix: true,
       tH: 2, //lowest-level header to be included (H2)
       bH: 6, //highest-level header to be included (H6)
       genIDs: false, //generate random IDs?
@@ -191,21 +192,24 @@
         //render it
         renderTree();
 
-        var ul = self.children('ul');
+        if (self.options.affix) {
+          var ul = self.children('ul');
 
-        self.children('ul').affix({
-          offset: {
-            top: function() {
-              var c = ul.offset().top,
-                d = parseInt(ul.children(0).css("margin-top"), 10),
-                e = $(self).height();
-              return this.top = c - e - d;
-            },
-            bottom: function() {
-              return this.bottom = $(self).outerHeight(!0);
+          self.children('ul').affix({
+            offset: {
+              top: function() {
+                var c = ul.offset().top,
+                  d = parseInt(ul.children(0).css("margin-top"), 10),
+                  e = $(self).height();
+                return this.top = c - e - d;
+              },
+              bottom: function() {
+                return this.bottom = $(self).outerHeight(!0);
+              }
             }
-          }
-        });
+          });
+        }
+
 
         $('body').attr('data-spy', 'true').scrollspy({
           target: '#' + self.prop('id'),
