@@ -29,6 +29,7 @@ Options may be specified at time of initiation:
 
 ```js
 $('#somediv').DynamicScrollspy({
+  affix: true, //affix by default
   tH: 2, //lowest-level header to be included (H2)
   bH: 6, //highest-level header to be included (H6)
   genIDs: false, //generate random IDs for headers?
