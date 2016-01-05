@@ -17,7 +17,7 @@
 
     //extend options priorities: passed, existing, defaults
     this.options = $.extend({}, {
-      affix: true,
+      affix: true, //use affix by default
       tH: 2, //lowest-level header to be included (H2)
       bH: 6, //highest-level header to be included (H6)
       genIDs: false, //generate random IDs?

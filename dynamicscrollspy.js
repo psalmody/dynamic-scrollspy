@@ -1,5 +1,5 @@
 /**
-*  AutoScrollspy v 0.0.7 by Michael A Smith @psalmody
+*  AutoScrollspy v 0.0.8 by Michael A Smith @psalmody
 *  https://github.com/psalmody/dynamic-scrollspy
 */
 ;
@@ -21,7 +21,7 @@
 
     //extend options priorities: passed, existing, defaults
     this.options = $.extend({}, {
-      affix: true,
+      affix: true, //use affix by default
       tH: 2, //lowest-level header to be included (H2)
       bH: 6, //highest-level header to be included (H6)
       genIDs: false, //generate random IDs?
