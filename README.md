@@ -1,6 +1,10 @@
 # Dynamic-Scrollspy
 by Michael A Smith @psalmody
 
+[![NPM version](http://img.shields.io/npm/v/dynamic-scrollspy.svg)](https://www.npmjs.com/package/dynamic-scrollspy)
+[![Downloads](https://img.shields.io/npm/dm/dynamic-scrollspy.svg)](https://www.npmjs.com/package/dynamic-scrollspy)
+[![Join the chat at https://gitter.im/node-schedule/node-schedule](https://img.shields.io/badge/gitter-chat-green.svg)](https://gitter.im/psalmody/dynamic-scrollspy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 jQuery plugin to dynamically generate a `.nav` outline and setup Bootstrap scrollspy.
 
 ## Installation
