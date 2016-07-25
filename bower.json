@@ -1,7 +1,7 @@
 {
   "name": "dynamic-scrollspy",
   "description": "jQuery plugin to dynamically generate outline and setup Bootstrap scrollspy.",
-  "main": "dynamicscrollspy.js",
+  "main": "dynamicscrollspy.min.js",
   "authors": [
     "Michael A Smith @psalmody"
   ],

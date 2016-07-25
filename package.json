@@ -1,8 +1,8 @@
 {
   "name": "dynamic-scrollspy",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "jQuery plugin to dynamically generate outline and setup Bootstrap scrollspy.",
-  "main": "Gruntfile.js",
+  "main": "dynamicscrollspy.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
