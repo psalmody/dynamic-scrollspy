@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         },
         build: {
             src: ['src/dynamicscrollspy.js'],
-            dest: 'dynamicscrollspy.js'
+            dest: 'build/dynamicscrollspy.js'
         }
     },
     uglify: {
@@ -19,13 +19,13 @@ module.exports = function(grunt) {
       },
       build: {
         files: [{
-          src: 'dynamicscrollspy.js',
-          dest: 'dynamicscrollspy.min.js'
+          src: 'build/dynamicscrollspy.js',
+          dest: 'build/dynamicscrollspy.min.js'
         }]
       }
     },
     jsbeautifier: {
-      files: ["src/*.js"],
+      files: ["src/*.js",'tests/*.html'],
       options: {
         js: {
           indentSize: 2
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['src/*.js'],
+      files: ['src/*.js','tests/*.html'],
       tasks: ['jsbeautifier','concat','uglify'],
       options: {
         livereload: true
