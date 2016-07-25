@@ -59,9 +59,24 @@ overriden at this time:
 $('#somediv').DynamicScrollspy();
 ```
 
+### Horizontal Nav scrollspy
+
+It is possible to use this package for a top/bottom navbar style scrollspy.
+
+See `/tests/horizontal.html` for an example. Mainly, settings would require changes:
+
+```javascript
+$('#somediv').DynamicScrollspy({
+  affix: false, //needs to be false, instead setup navbar with affix if needed
+  ulClassNames: 'navbar-nav', //the #somediv should be the navbar-collapse div
+  tH: 2, //this is the default anyway
+  bH: 2 //likely need to limit to one level of H* tags so the nav isn't unweildy
+})
+```
+
 ### CSS
 
-Some example CSS for styling a right-side list (like on [Bootstrap's docs pages](http://getbootstrap.com/css/)) is available in `/tests/basic.html`. Also provided here:
+Some example CSS for styling a right-side list (like on [Bootstrap's docs pages](http://getbootstrap.com/css/)) Also see `/tests/basic.html`.
 
 ```css
 /* nav */
