@@ -1,4 +1,3 @@
-;
 (function($) {
 
   $.fn.DynamicScrollspy = function(opts) {
@@ -11,7 +10,7 @@
       this.isinit = false;
       this.empty();
       this.off('activate.bs.scrollspy');
-      $(body).removeAttr('data-spy');
+      $('body').removeAttr('data-spy');
       return this;
     }
 
@@ -224,7 +223,7 @@
         renderTree();
 
         $('[data-spy="scroll"]').each(function() {
-          var $spy = $(this).scrollspy('refresh');
+          $(this).scrollspy('refresh');
         });
 
       }
