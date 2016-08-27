@@ -11,12 +11,22 @@ jQuery plugin to dynamically generate a `.nav` outline and setup Bootstrap scrol
 
 Include [Bootstrap 3+](http://getbootstrap.com) and [jQuery 1.11+ or 2.0+](http://jquery.com).
 
-Download from [GitHub Project Page](https://github.com/psalmody/dynamic-scrollspy).
+Download from [GitHub Project Page](https://github.com/psalmody/dynamic-scrollspy) or:
+
+Bower:
+```
+bower install dynamic-scrollspy
+```
+
+NPM:
+```
+npm install dynamic-scrollspy
+```
 
 Include:
 
 ```html
-<script type="text/javascript" src="dynamicscrollspy.min.js"></script>
+<script type="text/javascript" src="build/dynamicscrollspy.min.js"></script>
 ```
 
 ## Usage
