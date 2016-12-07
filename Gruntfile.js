@@ -34,10 +34,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['src/*.js','tests/*.html'],
-      tasks: ['jsbeautifier','concat','uglify'],
-      options: {
-        livereload: true
-      }
+      tasks: ['jsbeautifier','concat','uglify']
     }
   });
 

@@ -1,8 +1,7 @@
 /**
-*  AutoScrollspy v 0.0.11 by Michael A Smith @psalmody
+*  AutoScrollspy v 0.0.12 by Michael A Smith @psalmody
 *  https://github.com/psalmody/dynamic-scrollspy
 */
-;
 (function($) {
 
   $.fn.DynamicScrollspy = function(opts) {
@@ -15,7 +14,7 @@
       this.isinit = false;
       this.empty();
       this.off('activate.bs.scrollspy');
-      $(body).removeAttr('data-spy');
+      $('body').removeAttr('data-spy');
       return this;
     }
 
@@ -228,7 +227,7 @@
         renderTree();
 
         $('[data-spy="scroll"]').each(function() {
-          var $spy = $(this).scrollspy('refresh');
+          $(this).scrollspy('refresh');
         });
 
       }
