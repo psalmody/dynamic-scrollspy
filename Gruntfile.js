@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         },
         build: {
             src: ['src/dynamicscrollspy.js'],
-            dest: 'build/dynamicscrollspy.js'
+            dest: 'dist/dynamicscrollspy.js'
         }
     },
     uglify: {
@@ -19,8 +19,8 @@ module.exports = function(grunt) {
       },
       build: {
         files: [{
-          src: 'build/dynamicscrollspy.js',
-          dest: 'build/dynamicscrollspy.min.js'
+          src: 'dist/dynamicscrollspy.js',
+          dest: 'dist/dynamicscrollspy.min.js'
         }]
       }
     },
@@ -32,7 +32,20 @@ module.exports = function(grunt) {
         }
       }
     },
+    express: {
+      options: {
+        script: 'bin/dev-server.js'
+      },
+      dev: {
+        options: {
+          script: 'bin/dev-server.js'
+        }
+      }
+    },
     watch: {
+      options: {
+        livereload: true
+      },
       files: ['src/*.js','tests/*.html'],
       tasks: ['jsbeautifier','concat','uglify']
     }
@@ -42,7 +55,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-jsbeautifier');
+  grunt.loadNpmTasks('grunt-express-server');
 
   grunt.registerTask('default', ['jsbeautifier','concat','uglify']);
+  grunt.registerTask('serve', ['express:dev', 'watch']);
 
 };

@@ -23,6 +23,7 @@
       affix: true, //use affix by default
       tH: 2, //lowest-level header to be included (H2)
       bH: 6, //highest-level header to be included (H6)
+      exclude: false, //jquery filter
       genIDs: false, //generate random IDs?
       offset: 100, //offset for scrollspy
       ulClassNames: 'hidden-print', //add this class to top-most UL
@@ -47,7 +48,7 @@
       for (var i = self.options.tH; i <= self.options.bH; i++) {
         st.push('H' + i);
       }
-      return $(st.join(','));
+      return $(st.join(',')).not(self.options.exclude);
     }
 
     //generate random numbers; save and check saved to keep them unique
@@ -106,7 +107,7 @@
     //setup the tree, (first level)
     function makeTree() {
       var tree = self.tree;
-      $('H' + self.options.tH).each(function() {
+      $('H' + self.options.tH).not(self.options.exclude).each(function() {
         //run the first level
         tree[$(this).prop('id')] = {
           dstext: encodeHTML($(this).text()),
@@ -125,6 +126,8 @@
     //iterate through each grandchild+ level of the tree
     function itCreateTree(what) {
       for (var k in what) {
+        //skip empty items
+        if (k === '') continue;
         // skip if text or element
         if (k == 'dstext' || k == 'jqel') continue;
         //get the current level
@@ -132,7 +135,7 @@
         //end if we are at the final level
         if (lvl >= self.options.bH) return false;
         //next until
-        $('#' + k).nextUntil('H' + lvl).filter('H' + (lvl + 1)).each(function() {
+        $('#' + k).nextUntil('H' + lvl).filter('H' + (lvl + 1)).not(self.options.exclude).each(function() {
           what[k][$(this).prop('id')] = {
             dstext: encodeHTML($(this).text()),
             jqel: $(this)
