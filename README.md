@@ -1,5 +1,5 @@
 # Dynamic-Scrollspy
-by Michael A Smith @psalmody
+by Michael Tallino @psalmody
 
 [![NPM version](http://img.shields.io/npm/v/dynamic-scrollspy.svg)](https://www.npmjs.com/package/dynamic-scrollspy)
 [![Downloads](https://img.shields.io/npm/dm/dynamic-scrollspy.svg)](https://www.npmjs.com/package/dynamic-scrollspy)
@@ -33,6 +33,8 @@ Include:
 
 Basic usage: setup a div or nav area to put the auto-generated nav outline in.
 
+> Requires all H1 - H6 tags live at the same DOM level.
+
 ```js
 $('#somediv').DynamicScrollspy();
 ```
@@ -46,6 +48,7 @@ $('#somediv').DynamicScrollspy({
   affix: true, //affix by default
   tH: 2, //lowest-level header to be included (H2)
   bH: 6, //highest-level header to be included (H6)
+  exclude: false, //exclude from the tree/outline any H tags matching this jquery selector
   genIDs: false, //generate random IDs for headers?
   offset: 100, //offset from viewport top for scrollspy
   ulClassNames: 'hidden-print', //add this class to top-most UL
