@@ -1,6 +1,6 @@
 {
   "name": "dynamic-scrollspy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "jQuery plugin to dynamically generate outline and setup Bootstrap scrollspy.",
   "main": "dist/dynamicscrollspy.min.js",
   "scripts": {

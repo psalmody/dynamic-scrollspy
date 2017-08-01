@@ -33,6 +33,8 @@ Include:
 
 Basic usage: setup a div or nav area to put the auto-generated nav outline in.
 
+> Requires all H1 - H6 tags live at the same DOM level.
+
 ```js
 $('#somediv').DynamicScrollspy();
 ```

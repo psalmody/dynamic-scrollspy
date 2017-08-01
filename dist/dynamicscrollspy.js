@@ -1,5 +1,5 @@
 /**
-*  AutoScrollspy v 0.1.0 by Michael Tallino @psalmody
+*  AutoScrollspy v 0.1.2 by Michael Tallino @psalmody
 *  https://github.com/psalmody/dynamic-scrollspy
 */
 (function($) {
