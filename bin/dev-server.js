@@ -16,6 +16,7 @@ app.get('/',(req,res,next) => {
 })
 app.use(express.static('./tests'))
 app.use('/js/', express.static('./dist'))
+app.use('/src/', express.static('./src'))
 
 app.listen(3000, () => {
   console.log('listening on 3000')
