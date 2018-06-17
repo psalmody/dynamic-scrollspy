@@ -1,5 +1,5 @@
 /**
-*  AutoScrollspy v 0.1.2 by Michael Tallino @psalmody
+*  AutoScrollspy v 0.2.0 by Michael Tallino @psalmody
 *  https://github.com/psalmody/dynamic-scrollspy
 */
 (function($) {
@@ -20,7 +20,7 @@
 
     //extend options priorities: passed, existing, defaults
     this.options = $.extend({}, {
-      affix: true, //use affix by default
+      affix: true, //use affix by default, doesn't work for Bootstrap 4
       tH: 2, //lowest-level header to be included (H2)
       bH: 6, //highest-level header to be included (H6)
       exclude: false, //jquery filter
@@ -149,13 +149,12 @@
 
     //render tree (setup first level)
     function renderTree() {
-
       var ul = $('<ul class="nav ' + self.options.ulClassNames + '"></ul>');
       self.append(ul);
       //then iterate three tree
       $.each(self.tree, function(k) {
         var c = self.tree[k];
-        var li = '<li id="dsli' + k + '"><a href="#' + k + '">' + c.dstext + '</a></li>';
+        var li = '<li id="dsli' + k + '" class="nav-item"><a href="#' + k + '" class="nav-link">' + c.dstext + '</a></li>';
         ul.append(li);
         itRenderTree(self.tree[k]);
       });
@@ -175,7 +174,7 @@
         //skip if text or element
         if (k == 'dstext' || k == 'jqel') continue;
         var c = what[k];
-        ul.append('<li id="dsli' + k + '"><a href="#' + k + '">' + c.dstext + '</a></li>');
+        ul.append('<li id="dsli' + k + '" class="nav-item"><a href="#' + k + '" class="nav-link">' + c.dstext + '</a></li>');
         itRenderTree(what[k]);
       }
     }
@@ -198,7 +197,8 @@
         //render it
         renderTree();
 
-        if (self.options.affix) {
+        //bootstrap 4 has no affix
+        if (self.options.affix && typeof(self.children('ul').affix) === 'function') {
           var ul = self.children('ul');
 
           self.children('ul').affix({
