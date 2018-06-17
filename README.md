@@ -7,9 +7,11 @@ by Michael Tallino @psalmody
 
 jQuery plugin to dynamically generate a `.nav` outline and setup Bootstrap scrollspy.
 
+Bootstrap 4 works now - see notes at the end on how to use it.
+
 ## Installation
 
-Include [Bootstrap 3+](http://getbootstrap.com) and [jQuery 1.11+ or 2.0+](http://jquery.com).
+Include [Bootstrap 3+ or 4+](http://getbootstrap.com) and [jQuery 1.11+ or 2.0+ or 3.0+](http://jquery.com).
 
 Download from [GitHub Project Page](https://github.com/psalmody/dynamic-scrollspy) or:
 
@@ -45,7 +47,7 @@ Options may be specified at time of initiation:
 
 ```js
 $('#somediv').DynamicScrollspy({
-  affix: true, //affix by default
+  affix: true, //affix by default, doesn't work on Bootstrap 4
   tH: 2, //lowest-level header to be included (H2)
   bH: 6, //highest-level header to be included (H6)
   exclude: false, //exclude from the tree/outline any H tags matching this jquery selector
@@ -87,7 +89,7 @@ $('#somediv').DynamicScrollspy({
 })
 ```
 
-### CSS
+### CSS - Bootstrap 3
 
 Some example CSS for styling a right-side list (like on [Bootstrap's docs pages](http://getbootstrap.com/css/)) Also see `/tests/basic.html`.
 
@@ -135,6 +137,30 @@ li.active > a {
 /* show second-level when active */
 .nav > .active > .nav {
   display: block;
+}
+```
+
+## Bootstrap 4
+
+Affix doesn't exist in Bootstrap 4. You'll need some extra CSS to make things work:
+
+```CSS
+/* Bootstrap 4 Differences */
+#scrollspy>ul.nav {
+  /* for affix if wanted */
+  position: fixed;
+  /* vertical orientation */
+  flex-direction: column;
+}
+/* bootstrap 4 puts the scrollspy .active on
+     the <a> instead of the <li> item */
+.nav>li>a.active {
+    font-weight: bold;
+    border-left: 2px solid gray;
+}
+/* need to see the child <ul> */
+.nav-link.active+ul.nav.child {
+    display: block;
 }
 ```
 
